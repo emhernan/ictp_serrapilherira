@@ -106,7 +106,7 @@ dim(envir)
 dim(coord)
 dim(envir_coord)
 head(envir_coord)
-
+View(envir_coord)
 # Transforming a species matrix vs. area in a data table
 
 # Now, we want to transform our species vs. area on a worksheet that contains each __observation__ in a __row__ and each __variable__ in a __column__. Each observation is the abundance of a species in a given area. To do this transformation we will use the `gather()` function from the __tidyr__ package. As we have 97 sites and 56 species, we will end up with an object with 5432 lines (97 x 56).
@@ -120,7 +120,10 @@ n_sp <- nrow(splist)
 n_sp
 
 # creating table with each species in each area species in rows
-comm_df <- tidyr::pivot_longer(comm, cols = 2:ncol(comm), names_to = "TaxCode", values_to = "Abundance")
+comm_df <- tidyr::pivot_longer(comm,
+                               cols = 2:ncol(comm), 
+                               names_to = "TaxCode", 
+                               values_to = "Abundance")
 
 # Let's check the object's header and dimensions.
 dim(comm_df)
