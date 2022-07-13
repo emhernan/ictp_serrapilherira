@@ -159,6 +159,7 @@ head(comm_traits)
 comm_total <- merge(comm_traits, envir_coord, by = "Sites")
 head(comm_total)
 
+if(!dir.exists("data/processed")){dir.create("data/processed")}
 # Finally, we end our script writing the modified table. We will use the function `write.csv()`.
 write.csv(x = comm_total,
           file = "data/processed/03_Pavoine_full_table.csv",
@@ -167,4 +168,5 @@ write.csv(x = comm_total,
 # Extra: filter ----------------------------------------------------------------
 sp1 <- filter(comm_total, TaxCode == "sp1", Elev > 3)
 
+sp1_2 <- comm_total[comm_total$TaxCode == "sp1" & comm_total$Elev > 3,]
 View(sp1)
