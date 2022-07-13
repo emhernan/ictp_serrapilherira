@@ -6,6 +6,9 @@
 # First version 2022-07-13
 # --------------------------------------------------#
 
+# all_data <- read.csv("data/processed/03_Pavoine_full_table.csv")
+# nrow(all_data)
+# sum(all_data$Abundance <= 0.5)
 # Loading the data
 data(iris)
 
@@ -48,7 +51,7 @@ sd01
 sd02
 sd01 == sd02
 
-
+# Coefficient of variation
 cv <- function(x){
   sd(x) / mean(x) * 100
 }
@@ -78,8 +81,8 @@ apply(vars, 2, IQR)
 cor(vars)
 
 # Graphical methods ------------------------------------------------------------
-barplot(table(iris$Species))
 
+barplot(table(iris$Species))
 
 par(mfrow = c(2, 2))
 hist(iris$Sepal.Length)
@@ -126,9 +129,10 @@ my_boxplot
 # the object is a list and the outliers are stored in the $out element of the list
 outliers <- my_boxplot$out
 # what is the position of the outliers
-which(iris$Sepal.Width %in% outliers)
+# which(iris$Sepal.Width %in% outliers)
 # let's use the position to index the object
-iris[which(iris$Sepal.Width %in% outliers), c("Sepal.Width", "Species")]
+iris[iris$Sepal.Width %in% outliers, c("Sepal.Width", "Species")]
+with_out <- iris[!iris$Sepal.Width %in% outliers, c("Sepal.Width", "Species")]
 
 
 boxplot(Sepal.Width ~ Species, data = iris)
