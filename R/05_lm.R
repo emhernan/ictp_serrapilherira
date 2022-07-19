@@ -58,7 +58,7 @@ par(mfrow = c(1, 1))
 
 
 # Comparing statistical distributions ------------------------------------------
-library(fitdistrplus)
+library("fitdistrplus")
 
 data("groundbeef")
 ?groundbeef
