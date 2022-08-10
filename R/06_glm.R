@@ -10,7 +10,7 @@ library(dplyr)
 library(lme4)
 library(merTools)
 library(ggplot2)
-library(bbmle)
+#library(bbmle)
 
 # Going back to lm to fit a Gaussian glm ---------------------------------------
 cuckoo <- read.csv("data/raw/valletta_cuckoo.csv")
